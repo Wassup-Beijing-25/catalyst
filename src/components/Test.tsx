@@ -4,8 +4,14 @@ import HeroText from "./shared/heroText/HeroText";
 
 const SeoLandingPage: React.FC = () => {
   return (
-    <div className="relative p-10 h-[100vh] overflow-hidden gradient-bg text-white px-6 lg:px-20 py-10 flex flex-col justify-center">
-      <div className="">
+    <div className="relative h-[96vh] overflow-hidden gradient-bg text-white  flex flex-col justify-center">
+      <div
+        className="px-10"
+        style={{
+          backgroundImage:
+            "url('https://framerusercontent.com/images/J9PD0z8SzMHT2KxXQClbD5Q7PU.png')",
+        }}
+      >
         {/* Gradient + Grid Overlay */}
         <div className="absolute inset-0 z-0">
           <div className="w-full h-full gradient-bg grid-overlay" />
@@ -35,20 +41,6 @@ const SeoLandingPage: React.FC = () => {
           </div>
 
           {/* Right Image */}
-          <div className="flex justify-center -mt-16 lg:justify-end">
-            <motion.img
-              src="https://framerusercontent.com/images/vB2MtWwZpfQllMWCRyLNFppKWyw.png?scale-down-to=1024"
-              alt="3D cubes"
-              className="w-[105%] object-contain drop-shadow-2xl"
-              initial={{ y: 0 }}
-              animate={{ y: [0, -40, 0] }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-          </div>
         </main>
       </div>
     </div>
