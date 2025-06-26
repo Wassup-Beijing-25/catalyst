@@ -37,7 +37,7 @@ const HeroText = () => {
       </span>
 
       <div className="text-4xl md:text-8xl font-semibold flex-col leading-tight">
-        <div className="text-white/80">Catyalist</div>
+        <div className="text-white/80">Catyalst</div>
         <div className="text-white -mt-2 mb-3">Grant Access</div>
 
         {/* Image 1 */}
