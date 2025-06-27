@@ -112,3 +112,39 @@ img{
   );
   position: absolute;
 }
+
+
+.planet-wrapper {
+  padding: 1px;
+  border-radius: 16px;
+  background: radial-gradient(circle at center, #0a0a0a, #000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.planet {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(
+      circle at 30% 30%,
+      #ffffff55,
+      transparent 25%
+    ),
+    radial-gradient(circle at center, #d1a0ff, #7e22ce, #581c87);
+  box-shadow:
+    0 0 8px #a855f7,
+    0 0 20px #a955f72e,
+    inset -4px -4px 12px #00000099;
+  animation: spin 10s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

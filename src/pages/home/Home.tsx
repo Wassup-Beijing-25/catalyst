@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Navbar from "../../components/shared/navbar/Navbar";
 import SeoLandingPage from "../../components/Test";
+import { SplineSceneBasic } from "../../components/demo";
 
 const Home = () => {
   return (
@@ -33,6 +34,9 @@ const Home = () => {
             />
           </div>
         </div>
+      </div>
+      <div className="">
+        <SplineSceneBasic />
       </div>
     </div>
   );

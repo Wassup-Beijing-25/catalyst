@@ -8,8 +8,13 @@ const Navbar = () => {
     >
       {/* Left: Logo */}
       <div className="flex items-center gap-2 text-black dark:text-white font-medium">
-        <Book className="w-5 h-5" />
-        <span>Bookly</span>
+        <div className="border border-0.5 border-gray-600 p-2 rounded-xl flex item-center justify-center">
+          <div className="planet-wrapper">
+            <div className="planet"></div>
+          </div>
+        </div>
+
+        <span>Catyalst</span>
       </div>
 
       {/* Center: Links */}
