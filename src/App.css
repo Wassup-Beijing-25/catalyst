@@ -1,7 +1,9 @@
 body{
   background-color: rgb(0, 0, 0);
 }
-
+html{
+  background-color: rgb(0, 0, 0);
+}
 
 .spline-canvas-container canvas {
   width: 180vh !important;
@@ -21,6 +23,16 @@ img{
     ellipse at 85% 90%,         /* Position glow to bottom-right */
     #8C45FF 0%, /* Soft purple glow */
     rgb(35, 18, 79) 30%,   /* Gradual dark fade */
+    rgb(0, 0, 0) 60%  ,   /* Solid background color */
+    rgb(0, 0, 0) 100%     /* Solid background color */
+  );
+}
+
+.gradient-bg2 {
+  background: radial-gradient(
+    ellipse at 50% 55%,         /* Position glow to bottom-right */
+    #8c45ff8b 0%, /* Soft purple glow */
+    rgba(35, 18, 79, 0.414) 30%,   /* Gradual dark fade */
     rgb(0, 0, 0) 60%  ,   /* Solid background color */
     rgb(0, 0, 0) 100%     /* Solid background color */
   );

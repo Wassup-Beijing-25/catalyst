@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 
 const HeroText = () => {
   const [hoverOffset, setHoverOffset] = useState({ x: 0, y: 0 });
