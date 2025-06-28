@@ -1,6 +1,7 @@
+import { useState } from "react";
 import Navbar from "../../components/shared/navbar/Navbar";
 import ProjectCard from "../../components/shared/projectCard/ProjectCard";
-
+import { motion } from "framer-motion";
 interface Project {
   id: number;
   title: string;
@@ -9,6 +10,18 @@ interface Project {
   progress: { current: number; total: number };
   category: "Defi" | "Gaming" | "NFT" | "Earn" | "Learn" | "DAO";
 }
+
+const categories: Project["category"][] = [
+  "Defi",
+  "Gaming",
+  "NFT",
+  "Earn",
+  "Learn",
+  "DAO",
+];
+
+const sortOptions = ["Newest", "Oldest", "Trending"] as const;
+type SortOption = (typeof sortOptions)[number];
 
 const dummyProjects: Project[] = [
   {
@@ -62,6 +75,27 @@ const dummyProjects: Project[] = [
 ];
 
 const ProjectList = () => {
+  const [selectedCategory, setSelectedCategory] = useState<
+    "All" | Project["category"]
+  >("All");
+  const [sortBy, setSortBy] = useState<SortOption>("Newest");
+
+  // Apply filters
+  const filtered = dummyProjects
+    .filter(
+      (p) => selectedCategory === "All" || p.category === selectedCategory
+    )
+    .sort((a, b) => {
+      if (sortBy === "Newest") return b.id - a.id;
+      if (sortBy === "Oldest") return a.id - b.id;
+      if (sortBy === "Trending") {
+        const aScore = a.votes.up - a.votes.down;
+        const bScore = b.votes.up - b.votes.down;
+        return bScore - aScore;
+      }
+      return 0;
+    });
+
   return (
     <div className="min-h-screen bg-black text-white relative">
       <div className="w-full flex flex-col items-center">
@@ -73,9 +107,58 @@ const ProjectList = () => {
         <div className="w-full h-full gradient-bg grid-overlay" />
       </div>
 
+      {/* Filters & Sort UI */}
       <div className="relative z-10 px-6 md:px-20 pt-40">
+        <div className="flex flex-wrap gap-2 mb-8 justify-between items-center">
+          {/* Category filters */}
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => setSelectedCategory("All")}
+              className={`px-4 py-1 rounded-full text-sm border ${
+                selectedCategory === "All"
+                  ? "bg-gradient-to-r from-purple-600 to-indigo-600 border-transparent text-white shadow-lg"
+                  : "border-gray-600 text-gray-300 hover:text-white hover:border-purple-500 hover:bg-[#222]"
+              }`}
+            >
+              All
+            </button>
+            {categories.map((cat) => (
+              <motion.button
+                layout
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-4 py-1 rounded-full text-sm font-medium capitalize border transition-all duration-300
+      ${
+        selectedCategory === cat
+          ? "bg-gradient-to-r from-purple-600 to-indigo-600 border-transparent text-white shadow-lg"
+          : "border-gray-600 text-gray-300 hover:text-white hover:border-purple-500 hover:bg-[#222]"
+      }`}
+              >
+                {cat}
+              </motion.button>
+            ))}
+          </div>
+
+          {/* Sort dropdown */}
+          <select
+            className="bg-[#111]/80 backdrop-blur-md border border-gray-700 rounded-lg text-sm px-3 py-2 focus:outline-none"
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value as SortOption)}
+          >
+            {sortOptions.map((option) => (
+              <option key={option} value={option}>
+                Sort by: {option}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Project cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {dummyProjects.map((project) => (
+          {filtered.map((project) => (
             <ProjectCard
               key={project.id}
               title={project.title}

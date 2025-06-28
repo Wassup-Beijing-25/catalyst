@@ -18,7 +18,7 @@ const Navbar = () => {
       </div>
 
       {/* Center: Links */}
-      <ul className="flex gap-6 font- text-sm text-black dark:text-gray-300">
+      <ul className="flex gap-6 font- text-sm text-black dark:text-gray-300 hidden sm:flex">
         <li className="hover:font-semibold cursor-pointer">About us</li>
         <li className="hover:font-semibold cursor-pointer">Contact us</li>
         <li className="hover:font-semibold cursor-pointer">Help & support</li>
@@ -35,7 +35,7 @@ const Navbar = () => {
         <button className="button">
           <div className="blob1"></div>
           <div className="blob2"></div>
-          <div className="inner">Log in</div>
+          <div className="inner">Connect</div>
         </button>
       </div>
     </nav>
