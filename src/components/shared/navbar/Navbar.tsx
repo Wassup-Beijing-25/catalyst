@@ -7,7 +7,7 @@ const Navbar = () => {
       className="fixed w-full top-5 z-[500] mx-auto flex items-center 
     justify-between px-6 py-3 rounded-full bg-black/10 backdrop-blur-md shadow-md max-w-4xl mx-auto mt-6 border border-white/20"
     >
-      {/* Left: Logo */}
+      {/* Left: Logo */}<Link to="/">
       <div className="flex items-center gap-2 text-black dark:text-white font-medium">
         <div className="border border-0.5 border-gray-600 p-2 rounded-xl flex item-center justify-center">
           <div className="planet-wrapper">
@@ -17,6 +17,9 @@ const Navbar = () => {
 
         <span>Catyalst</span>
       </div>
+      </Link>
+
+      {/* Center: Logo Text */}
 
       {/* Center: Links */}
       <ul className="flex gap-6 text-sm text-black dark:text-gray-300 hidden sm:flex">
