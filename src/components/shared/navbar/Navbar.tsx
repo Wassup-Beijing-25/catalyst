@@ -1,4 +1,5 @@
 import { Book } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -18,10 +19,47 @@ const Navbar = () => {
       </div>
 
       {/* Center: Links */}
-      <ul className="flex gap-6 font- text-sm text-black dark:text-gray-300 hidden sm:flex">
-        <li className="hover:font-semibold cursor-pointer">About us</li>
-        <li className="hover:font-semibold cursor-pointer">Contact us</li>
-        <li className="hover:font-semibold cursor-pointer">Help & support</li>
+      <ul className="flex gap-6 text-sm text-black dark:text-gray-300 hidden sm:flex">
+        <li>
+          <Link
+            to="/about"
+            className="font-semibold cursor-pointer dark:hover:text-gray-100 transition-colors"
+          >
+            About Us
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/projects"
+            className="font-semibold cursor-pointer dark:hover:text-gray-100 transition-colors"
+          >
+            Projects
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/project-form"
+            className="font-semibold cursor-pointer dark:hover:text-gray-100 transition-colors"
+          >
+            Submit Idea
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/community"
+            className="font-semibold cursor-pointer dark:hover:text-gray-100 transition-colors"
+          >
+            Community
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/contact"
+            className="font-semibold cursor-pointer dark:hover:text-gray-100 transition-colors"
+          >
+            Contact
+          </Link>
+        </li>
       </ul>
 
       {/* Right: Buttons */}
