@@ -106,7 +106,8 @@ const ProjectList = () => {
       <div className="absolute inset-0 z-0">
         <div className="w-full h-full gradient-bg grid-overlay" />
       </div>
-
+      {/* <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-purple-600/10 rounded-full blur-3xl z-0" />
+        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-violet-600/5 rounded-full blur-3xl z-0" /> */}
       {/* Filters & Sort UI */}
       <div className="relative z-10 px-6 md:px-20 pt-40">
         <div className="flex flex-wrap gap-2 mb-8 justify-between items-center">
