@@ -5,6 +5,7 @@ import ProjectForm from "./pages/projectForm/ProjectForm";
 import "./App.css"; // Import your CSS file
 import ProjectList from "./pages/projectList/ProjectList";
 import About from "./pages/about/About";
+import Community from "./pages/community/Community";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/project-form" element={<ProjectForm />} />
         <Route path="/projects" element={<ProjectList />} />
         <Route path="/about" element={<About />} />
+        <Route path="/community" element={<Community />} />
       </Routes>
     </Router>
   );

@@ -148,3 +148,16 @@ img{
     transform: rotate(360deg);
   }
 }
+
+
+/* global.css or tailwind.css */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(168, 85, 247, 0.3);
+  border-radius: 8px;
+}
