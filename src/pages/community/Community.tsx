@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { FaShareAlt, FaTrash } from "react-icons/fa";
@@ -20,7 +21,8 @@ const Community = () => {
   const [newChannel, setNewChannel] = useState("");
   const [channelSearch, setChannelSearch] = useState("");
   const [showTyping, setShowTyping] = useState(false);
-  const messagesEndRef = useRef(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const messagesEndRef = useRef<any>(null);
 
   const sendMessage = () => {
     if (input.trim() === "") return;
@@ -44,25 +46,25 @@ const Community = () => {
     }, 1000);
   };
 
-  const addReaction = (index, emoji) => {
+  const addReaction = (index: any, emoji: any) => {
     setMessages((prev) => {
       const updated = [...prev];
-      const reactions = { ...updated[index].reactions };
+      const reactions: any = { ...updated[index].reactions };
       reactions[emoji] = (reactions[emoji] || 0) + 1;
       updated[index] = { ...updated[index], reactions };
       return updated;
     });
   };
 
-  const handleCreateChannel = () => {
-    const trimmed = newChannel.trim();
-    if (trimmed && !channels.find((c) => c.id === trimmed.toLowerCase())) {
-      const newChan = { name: trimmed, id: trimmed.toLowerCase() };
-      setChannels((prev) => [...prev, newChan]);
-      setActiveChannel(newChan.id);
-      setNewChannel("");
-    }
-  };
+  // const handleCreateChannel = () => {
+  //   const trimmed = newChannel.trim();
+  //   if (trimmed && !channels.find((c) => c.id === trimmed.toLowerCase())) {
+  //     const newChan = { name: trimmed, id: trimmed.toLowerCase() };
+  //     setChannels((prev) => [...prev, newChan]);
+  //     setActiveChannel(newChan.id);
+  //     setNewChannel("");
+  //   }
+  // };
 
   const handleDeleteChannel = (id) => {
     setChannels((prev) => prev.filter((ch) => ch.id !== id));

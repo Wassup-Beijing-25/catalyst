@@ -6,6 +6,7 @@ import "./App.css"; // Import your CSS file
 import ProjectList from "./pages/projectList/ProjectList";
 import About from "./pages/about/About";
 import Community from "./pages/community/Community";
+import Leaderboard from "./pages/leaderBoard/LeaderBoard";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/projects" element={<ProjectList />} />
         <Route path="/about" element={<About />} />
         <Route path="/community" element={<Community />} />
+        <Route path="/leaderBoard" element={<Leaderboard />} />
       </Routes>
     </Router>
   );
